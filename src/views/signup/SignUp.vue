@@ -2,9 +2,9 @@
 import { ref, onMounted } from "vue";
 </script>
 <template>
-  <section id="sign_up">
-    <div id="sign_up_image"></div>
-    <div id="sign_up_content">
+  <section id="sign-up">
+    <div id="sign-up-image"></div>
+    <div id="sign-up-content">
       <form action="">
         <h1>Lets Go Shopping</h1>
         <label>Full Name <input type="text" placeholder="Name" /></label>
@@ -12,7 +12,7 @@ import { ref, onMounted } from "vue";
         <label>Phone Number<input type="text" placeholder="Number" /></label>
         <label>Password<input type="password" placeholder="Password" /></label>
         <label>Confirm Password<input type="password" placeholder="Password" /></label>
-        <div id="button_div">
+        <div id="button-div">
           <a href="#">
             <span></span>
             <span></span>

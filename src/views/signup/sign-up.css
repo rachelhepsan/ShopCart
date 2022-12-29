@@ -5,20 +5,20 @@ h1 {
   font-weight: normal;
   line-height: 48px;
 }
-#sign_up {
+#sign-up {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #f6f6d9;
 }
-#sign_up_image {
+#sign-up-image {
   height: 100vh;
   width: 60%;
-  background: url("/public/Images/signUpImage.jpg") center no-repeat;
+  background: url("/public/signUpImage.jpg") center no-repeat;
   background-size: cover;
 }
-#sign_up_content {
+#sign-up-content {
   width: 351px;
   margin: auto auto;
 }
@@ -58,7 +58,6 @@ a {
   transition: 0.5s;
   letter-spacing: 4px;
   overflow: hidden;
-  /* margin-right: 50px; */
   width: 100%;
   padding-left: 110px;
 }
@@ -150,7 +149,7 @@ a span:nth-child(4) {
     bottom: 100%;
   }
 }
-#button_div {
+#button-div {
   display: flex;
   justify-content: center;
   align-items: center;

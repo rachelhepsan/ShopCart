@@ -5,27 +5,26 @@ h1 {
   font-weight: normal;
   line-height: 48px;
 }
-#sign_in {
+#sign-in {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #f6f6d9;
 }
-#sign_in_image {
+#sign-in-image {
   height: 100vh;
   width: 60%;
-  background: url("/public/Images/signUpImage.jpg") center no-repeat;
+  background: url("/public/signUpImage.jpg") center no-repeat;
   background-size: cover;
 }
-#sign_in_content {
+#sign-in-content {
   width: 40%;
   margin: auto auto;
 }
 form {
   width: 56%;
   margin: auto auto;
-  /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%); */
 }
 form,
 form label {
@@ -55,21 +54,6 @@ form input:focus {
 
 }
 
-/* input {
-  border: 0px;
-  display: block;
-  margin-bottom: 25px;
-  border-bottom: solid grey 2px;
-  width: 100%;
-}
-input[type="text"],
-[type="email"],
-[type="password"] {
-  outline: none;
-  margin-top: 7px;
-  padding-top: 7px;
-  padding-bottom: 6px;
-} */
 button {
   padding: 3px 4px;
   width: 40%;
@@ -88,7 +72,7 @@ button {
   cursor: pointer;
 }
 
-#sign_in_anchor {
+#sign-in-anchor {
   position: relative;
   display: inline-block;
   padding: 10px 99px 10px 99px;
@@ -103,23 +87,23 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
-#sign_in_anchor:hover {
+#sign-in-anchor:hover {
   background: grey;
   color: #050801;
   box-shadow: 0 0 5px grey, 0 0 5px grey, 0 0 5px grey, 0 0 5px grey;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
-#sign_in_anchor:nth-child(1) {
+#sign-in-anchor:nth-child(1) {
   filter: hue-rotate(270deg);
 }
-#sign_in_anchor:nth-child(2) {
+#sign-in-anchor:nth-child(2) {
   filter: hue-rotate(110deg);
 }
-#sign_in_anchor span {
+#sign-in-anchor span {
   position: absolute;
   display: block;
 }
-#sign_in_anchor span:nth-child(1) {
+#sign-in-anchor span:nth-child(1) {
   top: 0;
   left: 0;
   width: 100%;
@@ -136,7 +120,7 @@ button {
     left: 100%;
   }
 }
-#sign_in_anchor span:nth-child(2) {
+#sign-in-anchor span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -154,7 +138,7 @@ button {
     top: 100%;
   }
 }
-#sign_in_anchor span:nth-child(3) {
+#sign-in-anchor span:nth-child(3) {
   bottom: 0;
   right: 0;
   width: 100%;
@@ -173,7 +157,7 @@ button {
   }
 }
 
-#sign_in_anchor span:nth-child(4) {
+#sign-in-anchor span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -193,4 +177,7 @@ button {
 }
 form p {
   margin: 0 auto;
+}
+a:link{
+  text-decoration: none;
 }
