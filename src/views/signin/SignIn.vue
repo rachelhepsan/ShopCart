@@ -9,16 +9,18 @@ import { ref, onMounted } from "vue";
         <h1>Welcome Back</h1>
         <label>User Name <input type="text" placeholder="User Name" /></label>
         <label>Password<input type="password" placeholder="Password" /></label>
-        <a id="sign-in-anchor" href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Sign In
-        </a>
+        <RouterLink :to="{ name: 'plp' }">
+          <a id="sign-in-anchor" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Sign In
+          </a>
+        </RouterLink>
         <p>
           Dont have an account ?
-          <RouterLink :to="{ name: 'SignUp' }"><a >Sign Up</a></RouterLink>
+          <RouterLink :to="{ name: 'SignUp' }"><a>Sign Up</a></RouterLink>
         </p>
       </form>
     </div>
@@ -26,5 +28,5 @@ import { ref, onMounted } from "vue";
 </template>
 
 <style scoped>
-    @import "./sign-in.css";
+@import "./sign-in.css";
 </style>
