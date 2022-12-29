@@ -4,16 +4,15 @@
 }
 
 .banner {
-    background-image: url(/public/banner.jpg);
+    background-image: url(https://image.freepik.com/free-photo/asian-pretty-girl-holding-shopping-bags-while-hold-credit-cards-sunglasses-shopping-concept_35721-170.jpg);
     background-size: cover;
     height: 100vh;
-    margin-bottom: 50px;
 }
 
 .banner-caption {
-    color: grey;
-    text-align: center;
-    padding-top: 120px;
+    color: #fff;
+    /* text-align: right; */
+    padding: 50px;
     font-size: 100px;
     margin: 0;
 }
@@ -21,14 +20,14 @@
 section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    padding: 50px 0px;
     width: 100%;
 }
 
 .side-nav {
     padding: 20px;
     margin: 20px;
-    width: 50%;
+    width: 20%;
     background-color: beige;
 }
 
@@ -44,6 +43,7 @@ h3:hover {
 .product-container {
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
 }
 
 ul {

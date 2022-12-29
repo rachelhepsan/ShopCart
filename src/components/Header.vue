@@ -2,12 +2,12 @@
 </script>
 
 <template>
-    <header class="header container">
+    <header class="header">
         <div>
             <h2>ShopCart</h2>
         </div>
         <div class="options-container">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="search for products">
             <i class="fa-solid fa-cart-shopping"></i>
             <i class="fa-solid fa-user"></i>
         </div>
@@ -18,7 +18,12 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0px;
+    padding: 20px;
+}
+
+input {
+    border-radius: 20px;
+    padding: 5px;
 }
 
 .options-container{
@@ -27,13 +32,15 @@
 }
 
 i{
-    padding: 5px;
+    padding: 8px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 h2{
-    color: brown;
     font-size: 25px;
+    color: brown;
+    cursor: pointer;
 }
 
 .container {

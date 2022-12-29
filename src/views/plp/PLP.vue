@@ -10,15 +10,16 @@ import { getProducts } from "./services";
 onMounted(() => {
     getProducts();
 });
+console.log(state.results);
 </script>
 
 <template>
     <Header />
     <main>
         <div class="banner">
-            <h1 class="banner-caption">New Season Arrivals!</h1>
+            <h1 class="banner-caption">New Season <br>Arrivals!</h1>
         </div>
-        <section class="container">
+        <section>
             <nav class="side-nav">
                 <ul>
                     <li>

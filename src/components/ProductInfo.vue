@@ -6,21 +6,23 @@ const props = defineProps({
     }
 })
 
+const productRoute = { name: 'product-details' , params: { productId: props.data.id }}
+
 </script>
 
 <template>
-    <div>
-        <img :src="data.images[1]" alt="Product Image">
-        <h2>{{ data.title }}</h2>
-        <h3>{{ data.price }}</h3>
-    </div>
+    <RouterLink :to=productRoute>
+        <div>
+            <img :src="data.images[1]" alt="Product Image">
+            <h2>{{ data.title }}</h2>
+            <h3>{{ data.price }}</h3>
+        </div>
+    </RouterLink>
 </template>
 
 <style scoped>
 div {
-    width: 25%;
     padding: 20px;
-    margin: 10px;
     color: #000;
 }
 
@@ -30,12 +32,18 @@ div:hover {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+    width: 30%;
+    margin: 10px;
+}
+
 img {
     width: 100%;
     border-radius: 10px;
 }
 
-h2{
+h2 {
     cursor: pointer;
 }
 
