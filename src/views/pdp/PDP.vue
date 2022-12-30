@@ -4,11 +4,19 @@ import state from "./pdpState.js";
 import { getProducts } from "./pdpServices";
 import { ref } from "vue";
 import DressSize from "@/components/DressSize.vue";
-// onMounted(() => {
-//     getProducts();
-// });
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import { useRouter, useRoute } from "vue-router";
+// import state from './plpState';
 
-getProducts();
+const router = useRouter();
+const route = useRoute();
+onMounted(() => {
+    console.log(route.params.productId )
+});
+
+let fullproducts = ref()
+// getProducts();
 
 let showDetails = ref(false);
 
@@ -18,6 +26,7 @@ function toggleshowDetails() {
 </script>
 
 <template>
+  <!-- <Header /> -->
   <main>
     <div id="product-image"></div>
     <div id="product-description">
@@ -71,6 +80,7 @@ function toggleshowDetails() {
       </div>
     </div>
   </main>
+  <!-- <Footer/> -->
 </template>
 
 <style scoped>
