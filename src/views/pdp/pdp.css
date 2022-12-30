@@ -1,0 +1,133 @@
+main {
+  display: flex;
+  justify-content: space-between;
+}
+#product-image {
+  box-sizing: border-box;
+  width: 60%;
+  background: url("https://www.riverwoods.net/media/catalog/product/cache/b83bbf37d16c5fefcf7c9d29faf48907/r/m/rm22w-c8643_b-000_w20352_f.jpg")
+    center no-repeat;
+  background-size: cover;
+  background-color: #26323a;
+  height: 100vh;
+}
+#product-description {
+  box-sizing: border-box;
+  /* background-color: #bea168; */
+  /* background-color: wheat;
+   */
+   background-color: #ceccc8;
+  color: #26323a;
+  width: 40%;
+  padding: 25px 44px;
+  height: 100vh;
+  overflow: auto;
+
+}
+
+hr{
+    width: 100%;
+    border: 1px solid #26323a ;
+}
+#product-description {
+  display: flex;
+  flex-direction: column;
+}
+#product-description > * {
+  margin-bottom: 10px;
+}
+#discount {
+  display: flex;
+  align-items: center;
+}
+s {
+  padding-right: 7px;
+  font-size: 19px;
+}
+#discount h3 {
+  color: #a40000;
+  font-size: 15px;
+}
+#price-quantity {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+#price-quantity div p {
+  margin: 8px 0px;
+}
+#price-word,
+#quantity-word {
+  letter-spacing: 1.3px;
+  font-size: 11px;
+}
+
+#price {
+  color: darkgreen;
+  font-size: 35px;
+  font-size: 500;
+  font-weight: 700;
+}
+
+#quantity {
+  font-weight: 700;
+  font-size: 35px;
+}
+
+/* #size-heading {
+  margin-bottom: 23px;
+  font-size: 13px;
+  letter-spacing: 1.3px;
+} */
+
+#product-details-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+#product-details-container h4,p{
+    margin: 0;
+}
+#product-details-container p{
+    font-size: 27px;
+}
+ul li {
+  padding-bottom: 10px;
+}
+#what-we-offer{
+    margin-top: 7px;
+}
+#what-we-offer p{
+ padding-bottom: 10px;
+}
+
+#total-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 67%;
+  margin-top: 20px;
+}
+#total-price-word {
+  margin: 2px 0px;
+  font-size: 14px;
+  letter-spacing: 1.3px;
+}
+#total-price {
+  margin: 2px 0px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+#total-price-container button {
+  margin-top: 10px;
+  padding: 7px 25px;
+  height: 29px;
+  cursor: pointer;
+  background-color: #26323a;
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
