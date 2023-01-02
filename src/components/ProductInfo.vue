@@ -14,8 +14,8 @@ const productRoute = { name: 'product-details' , params: { productId: props.data
     <RouterLink :to=productRoute>
         <div>
             <img :src="data.images[1]" alt="Product Image">
-            <h2>{{ data.title }}</h2>
-            <h3>{{ data.price }}</h3>
+            <h3>{{ data.title }}</h3>
+            <h3 class="price">{{ data.price }}</h3>
         </div>
     </RouterLink>
 </template>
@@ -38,16 +38,12 @@ a {
     margin: 10px;
 }
 
+.price {
+    text-align: right;
+}
+
 img {
     width: 100%;
     border-radius: 10px;
-}
-
-h2 {
-    cursor: pointer;
-}
-
-h3 {
-    text-align: right;
 }
 </style>
