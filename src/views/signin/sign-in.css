@@ -75,8 +75,8 @@ button {
 #sign-in-anchor {
   position: relative;
   display: inline-block;
-  padding: 10px 99px 10px 99px;
-  margin: 20px 0;
+  padding: 10px 40px;
+  /* margin: 20px 0; */
   color: grey;
   text-decoration: none;
   text-transform: uppercase;
@@ -86,6 +86,7 @@ button {
   margin-right: 50px;
   margin: 0 auto;
   margin-bottom: 20px;
+  margin-left: 60px;
 }
 #sign-in-anchor:hover {
   background: grey;
