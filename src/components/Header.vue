@@ -18,7 +18,12 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
 }
 
 input {

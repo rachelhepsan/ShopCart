@@ -10,7 +10,6 @@ import { getProducts } from "./services";
 onMounted(() => {
     getProducts();
 });
-console.log(state.results);
 </script>
 
 <template>
@@ -58,9 +57,9 @@ console.log(state.results);
                             <label for="pr5"> Above $701</label><br><br>
                         </form>
                     </div>
-                    <li>
+                    <!-- <li>
                         <h3>Sort by Price Range</h3>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
             <div class="product-container">
