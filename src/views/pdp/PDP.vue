@@ -17,10 +17,28 @@ onMounted(() => {
 
 let fullproducts = ref();
 let showDetails = ref(false);
+let dressSize = ref(false);
+const quantity = ref(null);
+const totalPrice = ref(null);
 
+
+const decreaseCount = (eachItemPrice) => {
+  if (quantity.value.innerText > 1) {
+    quantity.value.innerText--;
+    totalPrice.value.innerText = eachItemPrice*quantity.value.innerText
+  }
+};
+const increaseCount = (maxQuantity,eachItemPrice) => {
+  if (quantity.value.innerText < maxQuantity) {
+    quantity.value.innerText++;
+    totalPrice.value.innerText = eachItemPrice*quantity.value.innerText
+  }
+};
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
+
+
 </script>
 
 <template>
@@ -38,16 +56,23 @@ function toggleshowDetails() {
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price">{{ state.results.price }}</p>
+          <p id="price"><span class="dollar">$</span> {{ state.results.price }}</p>
         </div>
         <div>
           <p id="quantity-word">Quantity</p>
-          <p id="quantity">7</p>
+          <div id="quantity-container">
+            <i class="fa-solid fa-minus" @click="decreaseCount(state.results.price)"></i>
+            <p id="quantity" ref="quantity">1</p>
+            <i
+              class="fa-solid fa-plus"
+              @click="increaseCount(state.results.quantity,state.results.price)"
+            ></i>
+          </div>
         </div>
       </div>
-
-      <DressSize />
-      
+      <div v-if="state.results.category === 'Fashion'">
+        <DressSize />
+      </div>
 
       <hr />
       <div id="product-details-container" @click="toggleshowDetails">
@@ -56,24 +81,26 @@ function toggleshowDetails() {
       </div>
 
       <ul v-if="showDetails">
-        <li>Material : 55% Cotton and 45% Polyester</li>
-        <li>Fit : Regular Fit</li>
-        <li>Sleeves : Full Sleeves</li>
-        <li>Ocassion : Formal</li>
-        <li>Pattern : Textured</li>
+        <li v-for="(item, index) in state.results.details" :key="index">
+          <p class="detail-para">{{ Object.keys(item)[0] }}</p>
+          <p id="detail-para-colon">:</p>
+          <p class="detail-para">{{ Object.values(item)[0] }}</p>
+        </li>
       </ul>
+
       <hr />
       <div id="what-we-offer">
         <p>&#10003;Free standard delivery on all orders</p>
         <p>&#10003;Free 30 day delivery Return</p>
         <p>
-          &#10003;For any queries,plese contact customer service at &nbsp;  0804335245
+          &#10003;For any queries,plese contact customer service at
+          <span id="customer-care-number">0804335245</span>
         </p>
       </div>
       <div id="total-price-container">
         <div>
           <p id="total-price-word">Total Price</p>
-          <p id="total-price">$ 700</p>
+          <span class='dollar'>$</span><p  id="total-price" ref="totalPrice">{{state.results.price}}</p>
         </div>
         <button>Add to cart</button>
       </div>

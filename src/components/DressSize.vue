@@ -13,7 +13,7 @@
 
 <script></script>
 
-<style>
+<style scoped>
 #size-heading {
   margin-bottom: 23px;
   font-size: 13px;
