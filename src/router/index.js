@@ -14,11 +14,6 @@ const router = createRouter({
       name:"SignUp",
       component: () => import("@/views/signup/SignUp.vue")
     },
-    // {
-    //   path: "/fashion",
-    //   name:"fashion",
-    //   component: () => import("@/views/pdp/PDP.vue")
-    // },
     {
       path: "/plp",
       name:"plp",

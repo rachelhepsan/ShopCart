@@ -7,7 +7,6 @@ import DressSize from "@/components/DressSize.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import { useRouter, useRoute } from "vue-router";
-// import state from './plpState';
 
 const router = useRouter();
 const route = useRoute();
@@ -37,19 +36,22 @@ const increaseCount = (maxQuantity,eachItemPrice) => {
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
+const updateCart = () => {
+    console.log(quantity.value.innerText)
+}
 
 
 </script>
 
 <template>
-  <!-- <Header /> -->
+  <Header />
   <main>
     <div id="product-image"></div>
     <div id="product-description">
       <h1>{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
-        <s>$101</s>
+        <s id="cut-dollar">$</s><s>101</s>
         <h3>(20% OFF)</h3>
       </div>
 
@@ -102,11 +104,11 @@ function toggleshowDetails() {
           <p id="total-price-word">Total Price</p>
           <span class='dollar'>$</span><p  id="total-price" ref="totalPrice">{{state.results.price}}</p>
         </div>
-        <button>Add to cart</button>
+        <button @click="updateCart">Add to cart</button>
       </div>
     </div>
   </main>
-  <!-- <Footer/> -->
+  <Footer/>
 </template>
 
 <style scoped>
