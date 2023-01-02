@@ -66,16 +66,12 @@
     },
     {
         "id": 6,
-        "title": "Long Kurtha 1",
+        "title": "Regular Fit Shirt",
         "price": "$ 10",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis orci ut luctus varius. Proin vitae lacus sagittis, vulputate ante sed, dignissim purus. Suspendisse hendrerit suscipit ante",
+        "description": "Peter England Light Purple Solid Long Sleeve Regular Fit Shirt",
         "category": "Fashion",
         "quantity": 12,
-        "images": [
-            "https://api.lorem.space/image/fashion?w=640&h=480&r=4252",
-            "https://api.lorem.space/image/fashion?w=640&h=480&r=4252",
-            "https://cdn.lorem.space/images/fashion/.cache/640x480/wesley-tingey-3mGnYRUNIck-unsplash.jpg"
-        ]  
+        "images": "https://www.riverwoods.net/media/catalog/product/cache/b83bbf37d16c5fefcf7c9d29faf48907/r/m/rm22w-c8643_b-000_w20352_f.jpg"
     },
     {
         "id": 7,

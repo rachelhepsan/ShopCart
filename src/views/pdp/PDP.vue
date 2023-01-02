@@ -12,12 +12,10 @@ import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 onMounted(() => {
-    console.log(route.params.productId )
+  getProducts(route.params.productId);
 });
 
-let fullproducts = ref()
-// getProducts();
-
+let fullproducts = ref();
 let showDetails = ref(false);
 
 function toggleshowDetails() {
@@ -30,10 +28,8 @@ function toggleshowDetails() {
   <main>
     <div id="product-image"></div>
     <div id="product-description">
-      <h1>Regular Fit Shirt</h1>
-      <p id="product-detail">
-        Peter England Light Purple Solid Long Sleeve Regular Fit Shirt
-      </p>
+      <h1>{{ state.results.title }}</h1>
+      <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
         <s>$101</s>
         <h3>(20% OFF)</h3>
@@ -42,14 +38,17 @@ function toggleshowDetails() {
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price">$ 81</p>
+          <p id="price">{{ state.results.price }}</p>
         </div>
         <div>
           <p id="quantity-word">Quantity</p>
           <p id="quantity">7</p>
         </div>
       </div>
+
       <DressSize />
+      
+
       <hr />
       <div id="product-details-container" @click="toggleshowDetails">
         <h4>Product Details</h4>
@@ -68,7 +67,7 @@ function toggleshowDetails() {
         <p>&#10003;Free standard delivery on all orders</p>
         <p>&#10003;Free 30 day delivery Return</p>
         <p>
-          &#10003;For any queries,plese contact customer service at 0804335245
+          &#10003;For any queries,plese contact customer service at &nbsp;  0804335245
         </p>
       </div>
       <div id="total-price-container">
@@ -85,4 +84,8 @@ function toggleshowDetails() {
 
 <style scoped>
 @import "./pdp.css";
+/* #product-image {
+    background: url(state.results.images)
+    center no-repeat;
+} */
 </style>
