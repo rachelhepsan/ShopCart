@@ -1,39 +1,36 @@
 <script setup></script>
 
 <template>
-  <footer>
-    <div class="container footer-container">
-      <h2>ShopCart</h2>
-      <div class="footer-links">
-        <h3>Store</h3>
-        <p>How it Works</p>
-        <p>Services</p>
-        <p>About</p>
-        <p>Brands</p>
-      </div>
-      <div class="footer-links">
-        <h3>Shop</h3>
-        <p>Support</p>
-        <p>Open a Shop</p>
-        <p>Licensing & Terms</p>
-        <p>Technology</p>
-      </div>
-      <div class="footer-links">
-        <h3>Help</h3>
-        <p>Contact</p>
-        <p>Login & Account</p>
-        <p>Privacy Policy</p>
-        <p>Refund Policy</p>
-      </div>
-    </div>
-  </footer>
+    <footer>
+        <div class="container footer-container">
+            <h2>ShopCart</h2>
+            <div class="footer-links">
+                <h3>Store</h3>
+                <p>How it Works</p>
+                <p>Services</p>
+                <p>About</p>
+            </div>
+            <div class="footer-links">
+                <h3>Shop</h3>
+                <p>Support</p>
+                <p>Open a Shop</p>
+                <p>Licensing & Terms</p>
+            </div>
+            <div class="footer-links">
+                <h3>Help</h3>
+                <p>Contact</p>
+                <p>Login & Account</p>
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <style scoped>
 footer {
-  padding: 10px;
-  background-color: #26323a;
-  color: grey;
+    padding: 10px;
+    background-color: #26323A;
+    color: grey;
 }
 
 .footer-container {
@@ -53,6 +50,10 @@ footer p {
 
 .footer-links {
   font-size: 14px;
+}
+
+.footer-links {
+    font-size: 14px;
 }
 
 .container {

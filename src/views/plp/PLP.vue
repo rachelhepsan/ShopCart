@@ -4,8 +4,13 @@ import ProductInfoVue from '@/components/ProductInfo.vue';
 import Footer from '@/components/Footer.vue';
 
 import state from './plpState';
-import { onMounted } from "vue";
+import { onMounted,watch } from "vue";
 import { getProducts } from "./services";
+
+watch(() => state.searchKey, () => {
+    state.results = [];
+    getProducts();
+})
 
 onMounted(() => {
     getProducts();
@@ -13,7 +18,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <Header />
+    <Header>
+        <template v-slot:search>
+            <input type="search" placeholder="search for products" v-model="state.searchKey">
+        </template>
+    </Header>
     <main>
         <div class="banner">
             <h1 class="banner-caption">New Season <br>Arrivals!</h1>
