@@ -20,33 +20,35 @@ let dressSize = ref(false);
 const quantity = ref(null);
 const totalPrice = ref(null);
 
-
 const decreaseCount = (eachItemPrice) => {
   if (quantity.value.innerText > 1) {
     quantity.value.innerText--;
-    totalPrice.value.innerText = eachItemPrice*quantity.value.innerText
+    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
   }
 };
-const increaseCount = (maxQuantity,eachItemPrice) => {
+const increaseCount = (maxQuantity, eachItemPrice) => {
   if (quantity.value.innerText < maxQuantity) {
     quantity.value.innerText++;
-    totalPrice.value.innerText = eachItemPrice*quantity.value.innerText
+    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
   }
 };
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 const updateCart = () => {
-    console.log(quantity.value.innerText)
-}
-
-
+  console.log(quantity.value.innerText);
+};
 </script>
 
 <template>
   <Header />
   <main>
-    <div id="product-image"></div>
+    <div id="product-image">
+      <img
+        :src="state.results.images"
+        style="height: 100%; width: 100%; object-fit: contain"
+      />
+    </div>
     <div id="product-description">
       <h1>{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
@@ -58,16 +60,23 @@ const updateCart = () => {
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price"><span class="dollar">$</span> {{ state.results.price }}</p>
+          <p id="price">
+            <span class="dollar">$</span> {{ state.results.price }}
+          </p>
         </div>
         <div>
           <p id="quantity-word">Quantity</p>
           <div id="quantity-container">
-            <i class="fa-solid fa-minus" @click="decreaseCount(state.results.price)"></i>
+            <i
+              class="fa-solid fa-minus"
+              @click="decreaseCount(state.results.price)"
+            ></i>
             <p id="quantity" ref="quantity">1</p>
             <i
               class="fa-solid fa-plus"
-              @click="increaseCount(state.results.quantity,state.results.price)"
+              @click="
+                increaseCount(state.results.quantity, state.results.price)
+              "
             ></i>
           </div>
         </div>
@@ -102,13 +111,14 @@ const updateCart = () => {
       <div id="total-price-container">
         <div>
           <p id="total-price-word">Total Price</p>
-          <span class='dollar'>$</span><p  id="total-price" ref="totalPrice">{{state.results.price}}</p>
+          <span class="dollar">$</span>
+          <p id="total-price" ref="totalPrice">{{ state.results.price }}</p>
         </div>
         <button @click="updateCart">Add to cart</button>
       </div>
     </div>
   </main>
-  <Footer/>
+  <Footer />
 </template>
 
 <style scoped>

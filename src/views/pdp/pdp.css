@@ -3,14 +3,17 @@ main {
   justify-content: space-between;
   margin-top: 102px;
 }
-#product-image {
+/* #product-image {
   box-sizing: border-box;
-  width: 40%;
+  width: 45%;
   background: url("https://www.riverwoods.net/media/catalog/product/cache/b83bbf37d16c5fefcf7c9d29faf48907/r/m/rm22w-c8643_b-000_w20352_f.jpg")
     center no-repeat;
-  background-size: cover;
-  background-color: #26323a;
+  background-size: contain;
+  background-color: #ceccc8;
   height: 100vh;
+} */
+#product-image{
+
 }
 #product-description {
   box-sizing: border-box;
@@ -19,8 +22,8 @@ main {
    */
   background-color: #ceccc8;
   color: #26323a;
-  width: 60%;
-  padding: 25px 44px;
+  width: 55%;
+  padding: 25px 70px;
   height: 100vh;
   overflow: auto;
 }
