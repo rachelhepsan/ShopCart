@@ -12,7 +12,6 @@
 
 .banner-caption {
     color: #fff;
-    /* background-color: rgb(128, 6, 6); */
     background: radial-gradient(#c97070, rgb(128, 6, 6));
     width: 50%;
     padding: 50px;
@@ -63,5 +62,10 @@ h3:hover {
 
 ul {
     list-style: none;
+}
+
+input {
+    border-radius: 20px;
+    padding: 5px;
 }
 
