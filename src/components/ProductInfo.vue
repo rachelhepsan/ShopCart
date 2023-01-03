@@ -13,7 +13,7 @@ const productRoute = { name: 'product-details' , params: { productId: props.data
 <template>
     <RouterLink :to=productRoute>
         <div>
-            <img :src="data.images[1]" alt="Product Image">
+            <img :src="data.images" alt="Product Image">
             <h3>{{ data.title }}</h3>
             <h3 class="price">{{ data.price }}</h3>
         </div>
