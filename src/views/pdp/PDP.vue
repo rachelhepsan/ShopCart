@@ -14,7 +14,7 @@ onMounted(() => {
   getProducts(route.params.productId);
 });
 
-let fullproducts = ref();
+
 let showDetails = ref(false);
 let dressSize = ref(false);
 const quantity = ref(null);
@@ -35,19 +35,15 @@ const increaseCount = (maxQuantity, eachItemPrice) => {
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
-const updateCart = () => {
-  console.log(quantity.value.innerText);
-};
+
 </script>
 
 <template>
-  <Header />
+  <Header/>
+
   <main>
     <div id="product-image">
-      <img
-        :src="state.results.images"
-        style="height: 100%; width: 100%; object-fit: contain"
-      />
+      <img :src="state.results.images" />
     </div>
     <div id="product-description">
       <h1>{{ state.results.title }}</h1>

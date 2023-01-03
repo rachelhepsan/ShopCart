@@ -12,8 +12,12 @@ main {
   background-color: #ceccc8;
   height: 100vh;
 } */
-#product-image{
-
+#product-image img{
+  /* height: 100%; 
+  width: 100%;  */
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 #product-description {
   box-sizing: border-box;
