@@ -72,7 +72,7 @@ onMounted(() => {
                 </ul>
             </nav>
             <div class="product-container">
-                <ProductInfoVue v-for="data in state.results" :data="data" />
+                <ProductInfoVue v-for="data,index in state.results" :data="data" :key="index" />
             </div>
         </section>
     </main>

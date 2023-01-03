@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
     <footer>
@@ -35,18 +34,22 @@ footer {
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 h2 {
-    font-size: 25px;
-    color: brown;
-    cursor: pointer;
+  font-size: 25px;
+  color: brown;
+  cursor: pointer;
 }
 
 footer p {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.footer-links {
+  font-size: 14px;
 }
 
 .footer-links {
@@ -54,7 +57,7 @@ footer p {
 }
 
 .container {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 </style>
