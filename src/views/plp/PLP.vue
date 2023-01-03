@@ -66,9 +66,6 @@ onMounted(() => {
                             <label for="pr5"> Above $701</label><br><br>
                         </form>
                     </div>
-                    <!-- <li>
-                        <h3>Sort by Price Range</h3>
-                    </li> -->
                 </ul>
             </nav>
             <div class="product-container">
