@@ -14,7 +14,7 @@ onMounted(() => {
   getProducts(route.params.productId);
 });
 
-
+let productCount = ref(null);
 let showDetails = ref(false);
 let dressSize = ref(false);
 const quantity = ref(null);
@@ -36,11 +36,15 @@ function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 
+const updateCart = () => {
+  productCount.value.innerText = quantity.value.innerText;
+};
 </script>
 
 <template>
-  <Header/>
-
+  <Header>
+    <span ref="productCount" id="product-count"></span>
+  </Header>
   <main>
     <div id="product-image">
       <img :src="state.results.images" />
