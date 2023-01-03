@@ -7,8 +7,9 @@
             <h2>ShopCart</h2>
         </div>
         <div class="options-container">
-            <input type="search" placeholder="search for products">
+            <slot name="search"></slot>
             <i class="fa-solid fa-cart-shopping"></i>
+            <slot></slot>
             <i class="fa-solid fa-user"></i>
         </div>
     </header>
@@ -24,11 +25,6 @@
     top: 0;
     width: 100%;
     background-color: #fff;
-}
-
-input {
-    border-radius: 20px;
-    padding: 5px;
 }
 
 .options-container{

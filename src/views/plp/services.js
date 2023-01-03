@@ -3,7 +3,15 @@ import state from "./plpState.js";
 
 export const getProducts = async () => {
     const response = await axios.get(
-        "../../src/assets/data.json"
+        "https://rachelhepsan.github.io/ProductDetails/data.json"
     );
-    state.results = response.data;
+    if (state.searchKey === "") {
+        state.results = response.data;
+    } else {
+        response.data.forEach(element => {
+            if (element.title.toLowerCase().startsWith(state.searchKey)) {
+                state.results.push(element);
+            }
+        });
+    }
 };

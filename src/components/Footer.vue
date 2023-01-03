@@ -10,21 +10,18 @@
                 <p>How it Works</p>
                 <p>Services</p>
                 <p>About</p>
-                <p>Brands</p>
             </div>
             <div class="footer-links">
                 <h3>Shop</h3>
                 <p>Support</p>
                 <p>Open a Shop</p>
                 <p>Licensing & Terms</p>
-                <p>Technology</p>
             </div>
             <div class="footer-links">
                 <h3>Help</h3>
                 <p>Contact</p>
                 <p>Login & Account</p>
                 <p>Privacy Policy</p>
-                <p>Refund Policy</p>
             </div>
         </div>
     </footer>
@@ -32,7 +29,7 @@
 
 <style scoped>
 footer {
-    padding: 40px;
+    padding: 10px;
     background-color: #26323A;
     color: grey;
 }
@@ -50,6 +47,10 @@ h2 {
 
 footer p {
     cursor: pointer;
+}
+
+.footer-links {
+    font-size: 14px;
 }
 
 .container {

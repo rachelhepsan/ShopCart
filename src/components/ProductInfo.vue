@@ -38,8 +38,8 @@ a {
     margin: 10px;
 }
 
-.price {
-    text-align: right;
+h3 {
+    text-align: center;
 }
 
 img {
