@@ -33,12 +33,12 @@
   display: flex;
   align-items: center;
 }
-#cart-container{
-    position: relative;
-    margin-right: 20px;
+#cart-container {
+  position: relative;
+  margin-right: 20px;
 }
 #cart-container slot {
-    /* position:absolute; */
+  /* position:absolute; */
 }
 i {
   padding: 8px;
@@ -55,5 +55,11 @@ h2 {
 .container {
   width: 90%;
   margin: 0 auto;
+}
+#cart-container slot {
+  background-color: bisque;
+  border: 1px solid red;
+  border-radius: 12px;
+  padding: 0px 6px;
 }
 </style>

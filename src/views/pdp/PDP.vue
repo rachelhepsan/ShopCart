@@ -19,17 +19,20 @@ let showDetails = ref(false);
 let dressSize = ref(false);
 const quantity = ref(null);
 const totalPrice = ref(null);
+const addTocart = ref(null)
 
 const decreaseCount = (eachItemPrice) => {
   if (quantity.value.innerText > 1) {
     quantity.value.innerText--;
     totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
+    addTocart.value.innerText="Add to cart"
   }
 };
 const increaseCount = (maxQuantity, eachItemPrice) => {
   if (quantity.value.innerText < maxQuantity) {
     quantity.value.innerText++;
     totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
+    addTocart.value.innerText="Add to cart"
   }
 };
 function toggleshowDetails() {
@@ -44,12 +47,13 @@ const updateCart = () => {
   //   JSON.stringify(productCount.value.innerText)
   // );
   productCount.value.innerText = quantity.value.innerText;
+  event.target.textContent="Added to cart"
 };
 </script>
 
 <template>
   <Header>
-    <span ref="productCount" id="product-count"></span>
+    <span ref="productCount" id="product-count">0</span>
   </Header>
   <main>
     <div id="product-image">
@@ -120,7 +124,7 @@ const updateCart = () => {
           <span class="dollar">$</span>
           <p id="total-price" ref="totalPrice">{{ state.results.price }}</p>
         </div>
-        <button @click="updateCart">Add to cart</button>
+        <button @click="updateCart" ref="addTocart">Add to cart</button>
       </div>
     </div>
   </main>
