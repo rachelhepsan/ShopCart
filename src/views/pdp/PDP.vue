@@ -63,7 +63,7 @@ const updateCart = () => {
       <h1>{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
-        <s id="cut-dollar">$</s><s>101</s>
+        <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s><s>101</s>
         <h3>(20% OFF)</h3>
       </div>
 
@@ -71,7 +71,7 @@ const updateCart = () => {
         <div>
           <p id="price-word">Price</p>
           <p id="price">
-            <span class="dollar">$</span> {{ state.results.price }}
+            <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span> {{ state.results.price }}
           </p>
         </div>
         <div>
@@ -115,7 +115,7 @@ const updateCart = () => {
       <div id="total-price-container">
         <div>
           <p id="total-price-word">Total Price</p>
-          <span class="dollar">$</span>
+          <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span>
           <p id="total-price" ref="totalPrice">{{ state.results.price }}</p>
         </div>
         <button @click="updateCart" ref="addTocart">Add to cart</button>
