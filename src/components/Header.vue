@@ -37,9 +37,7 @@
   position: relative;
   margin-right: 20px;
 }
-#cart-container slot {
-  /* position:absolute; */
-}
+
 i {
   padding: 8px;
   font-size: 20px;
