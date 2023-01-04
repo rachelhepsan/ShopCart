@@ -1,7 +1,7 @@
 <template>
   <p id="size-heading">Select Size</p>
   <div id="size-container">
-    <span>32</span>
+    <span @click="colorPrevail" :class="{ spanColor: isColor }">32</span>
     <span>34</span>
     <span>36</span>
     <span>38</span>
@@ -11,7 +11,14 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+import { ref } from "vue";
+const isColor = ref(false);
+const colorPrevail = () => {
+  console.log(event.target);
+  isColor.value = true;
+};
+</script>
 
 <style scoped>
 #size-heading {
@@ -35,7 +42,10 @@ span {
   color: whitesmoke;
   cursor: pointer;
 }
-/* #size-container span:{
-  background-color: blueviolet;
-} */
+
+.spanColor {
+  background-color: #26323a;
+  color: whitesmoke;
+  cursor: pointer;
+}
 </style>

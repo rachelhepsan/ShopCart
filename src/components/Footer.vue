@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <footer>
+    <footer >
         <div class="container footer-container">
             <h2>ShopCart</h2>
             <div class="footer-links">
