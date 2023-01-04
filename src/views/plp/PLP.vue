@@ -4,12 +4,24 @@ import ProductInfoVue from '@/components/ProductInfo.vue';
 import Footer from '@/components/Footer.vue';
 
 import state from './plpState';
-import { onMounted,watch } from "vue";
+import { onMounted, watch, ref } from "vue";
 import { getProducts } from "./services";
+import { getProducts2 } from "./services";
+import { getProducts3 } from "./services";
 
 watch(() => state.searchKey, () => {
     state.results = [];
     getProducts();
+})
+
+watch(() => state.checkCategory, () => {
+    state.results = [];
+    getProducts2(state.checkCategory);
+})
+
+watch(() => state.checkPriceRange, () => {
+    state.results = [];
+    getProducts3(state.checkPriceRange);
 })
 
 onMounted(() => {
@@ -25,7 +37,12 @@ onMounted(() => {
     </Header>
     <main>
         <div class="banner">
-            <h1 class="banner-caption">New Season <br>Arrivals!</h1>
+            <div class="banner-caption">
+                <h1>New Season <br>Arrivals!</h1>
+            </div>
+            <div class="banner-image">
+                <img src="../../../public/banner.jpg" alt="banner">
+            </div>
         </div>
         <section>
             <nav class="side-nav">
@@ -35,17 +52,17 @@ onMounted(() => {
                     </li>
                     <div>
                         <form>
-                            <input type="checkbox" id="books" name="books" value="books">
+                            <input type="checkbox" id="books" name="books" value="books" v-model="state.checkCategory">
                             <label for="books"> Books</label><br><br>
-                            <input type="checkbox" id="electronics" name="electronics" value="electronics">
+                            <input type="checkbox" id="electronics" name="electronics" value="electronics" v-model="state.checkCategory">
                             <label for="electronics"> Electronics</label><br><br>
-                            <input type="checkbox" id="fashion" name="fashion" value="fashion">
+                            <input type="checkbox" id="fashion" name="fashion" value="fashion" v-model="state.checkCategory">
                             <label for="fashion"> Fashion</label><br><br>
-                            <input type="checkbox" id="furniture" name="furniture" value="furniture">
+                            <input type="checkbox" id="furniture" name="furniture" value="furniture" v-model="state.checkCategory"> 
                             <label for="furniture"> Furniture</label><br><br>
-                            <input type="checkbox" id="sports" name="sports" value="sports">
-                            <label for="sports"> Sports</label><br><br>
-                            <input type="checkbox" id="care" name="care" value="care">
+                            <input type="checkbox" id="sports" name="sports" value="sports" v-model="state.checkCategory">
+                            <label for="sports"> Shoes</label><br><br>
+                            <input type="checkbox" id="care" name="care" value="personal care" v-model="state.checkCategory">
                             <label for="care"> Personal Care</label><br><br>
                         </form>
                     </div>
@@ -54,25 +71,23 @@ onMounted(() => {
                     </li>
                     <div>
                         <form>
-                            <input type="checkbox" id="pr1" name="pr1" value="pr1">
+                            <input type="checkbox" id="pr1" name="pr1" value="100" v-model="state.checkPriceRange">
                             <label for="pr1"> Less than $100</label><br><br>
-                            <input type="checkbox" id="pr2" name="pr2" value="pr2">
+                            <input type="checkbox" id="pr2" name="pr2" value="101-300" v-model="state.checkPriceRange">
                             <label for="pr2"> $101 - $300</label><br><br>
-                            <input type="checkbox" id="pr3" name="pr3" value="pr3">
+                            <input type="checkbox" id="pr3" name="pr3" value="301-500" v-model="state.checkPriceRange">
                             <label for="pr3"> $301 - $500</label><br><br>
-                            <input type="checkbox" id="pr4" name="pr4" value="pr4">
+                            <input type="checkbox" id="pr4" name="pr4" value="501-700" v-model="state.checkPriceRange">
                             <label for="pr4"> $501 - $700</label><br><br>
-                            <input type="checkbox" id="pr5" name="pr5" value="pr5">
+                            <input type="checkbox" id="pr5" name="pr5" value="701" v-model="state.checkPriceRange">
                             <label for="pr5"> Above $701</label><br><br>
                         </form>
                     </div>
-                    <!-- <li>
-                        <h3>Sort by Price Range</h3>
-                    </li> -->
                 </ul>
             </nav>
             <div class="product-container">
-                <ProductInfoVue v-for="data,index in state.results" :data="data" :key="index" />
+                <ProductInfoVue v-for="data in state.results"  :data="data" />
+                <!-- hi -->
             </div>
         </section>
     </main>

@@ -15,7 +15,7 @@ const productRoute = { name: 'product-details' , params: { productId: props.data
         <div>
             <img :src="data.images" alt="Product Image">
             <h3>{{ data.title }}</h3>
-            <h3 class="price">{{ data.price }}</h3>
+            <h3 class="price"><i class="fa-solid fa-indian-rupee-sign"></i>{{ data.price }}</h3>
         </div>
     </RouterLink>
 </template>
@@ -27,9 +27,8 @@ div {
 }
 
 div:hover {
-    background-color: grey;
+    box-shadow: 1px 1px 5px 3px #888888;
     border-radius: 30px;
-    color: #fff;
 }
 
 a {
