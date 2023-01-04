@@ -32,7 +32,7 @@ onMounted(() => {
 <template>
     <Header>
         <template v-slot:search>
-            <input type="search" placeholder="search for products" v-model="state.searchKey">
+            <input type="search" placeholder="search for products" class="search-input" v-model="state.searchKey">
         </template>
     </Header>
     <main>
