@@ -72,15 +72,15 @@ onMounted(() => {
                     <div>
                         <form>
                             <input type="checkbox" id="pr1" name="pr1" value="100" v-model="state.checkPriceRange">
-                            <label for="pr1"> Less than $100</label><br><br>
+                            <label for="pr1"> Less than <i class="fa-solid fa-indian-rupee-sign"></i>100</label><br><br>
                             <input type="checkbox" id="pr2" name="pr2" value="101-300" v-model="state.checkPriceRange">
-                            <label for="pr2"> $101 - $300</label><br><br>
+                            <label for="pr2"> <i class="fa-solid fa-indian-rupee-sign"></i>101 - <i class="fa-solid fa-indian-rupee-sign"></i>300</label><br><br>
                             <input type="checkbox" id="pr3" name="pr3" value="301-500" v-model="state.checkPriceRange">
-                            <label for="pr3"> $301 - $500</label><br><br>
+                            <label for="pr3"> <i class="fa-solid fa-indian-rupee-sign"></i>301 - <i class="fa-solid fa-indian-rupee-sign"></i>500</label><br><br>
                             <input type="checkbox" id="pr4" name="pr4" value="501-700" v-model="state.checkPriceRange">
-                            <label for="pr4"> $501 - $700</label><br><br>
+                            <label for="pr4"> <i class="fa-solid fa-indian-rupee-sign"></i>501 - <i class="fa-solid fa-indian-rupee-sign"></i>700</label><br><br>
                             <input type="checkbox" id="pr5" name="pr5" value="701" v-model="state.checkPriceRange">
-                            <label for="pr5"> Above $701</label><br><br>
+                            <label for="pr5"> Above <i class="fa-solid fa-indian-rupee-sign"></i>701</label><br><br>
                         </form>
                     </div>
                 </ul>
