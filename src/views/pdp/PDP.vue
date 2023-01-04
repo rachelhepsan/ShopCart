@@ -37,6 +37,12 @@ function toggleshowDetails() {
 }
 
 const updateCart = () => {
+  // const itemTotal = JSON.parse(localStorage.getItem("totalCount"));
+  // productCount.value.innerText = itemTotal+quantity.value.innerText;
+  // localStorage.setItem(
+  //   "totalCount",
+  //   JSON.stringify(productCount.value.innerText)
+  // );
   productCount.value.innerText = quantity.value.innerText;
 };
 </script>
