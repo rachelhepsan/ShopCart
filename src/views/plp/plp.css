@@ -4,20 +4,30 @@
 }
 
 .banner {
-    background-image: url(/public/banner.jpg);
-    background-size: contain;
-    height: 60vh;
-    margin-top: 80px;
+    display: flex;
+    margin-top: 100px;
+    width: 100%;
+    height: 426px;
 }
 
 .banner-caption {
     color: #fff;
-    background: radial-gradient(#c97070, rgb(128, 6, 6));
     width: 50%;
-    padding: 50px;
-    padding-bottom: 141px;
-    font-size: 90px;
-    margin: 0;
+    background: radial-gradient(#c97070, rgb(128, 6, 6));
+    font-size: 40px;
+}
+
+h1{
+    padding: 20px 0 0 40px;
+}
+
+.banner-image {
+    width: 50%;
+}
+
+img {
+    object-fit: fill;
+    width: 100%;
 }
 
 button {
@@ -58,6 +68,8 @@ h3:hover {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 ul {

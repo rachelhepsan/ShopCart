@@ -77,17 +77,11 @@ const updateCart = () => {
         <div>
           <p id="quantity-word">Quantity</p>
           <div id="quantity-container">
-            <i
-              class="fa-solid fa-minus"
-              @click="decreaseCount(state.results.price)"
-            ></i>
+            <i class="fa-solid fa-minus" @click="decreaseCount(state.results.price)"></i>
             <p id="quantity" ref="quantity">1</p>
-            <i
-              class="fa-solid fa-plus"
-              @click="
-                increaseCount(state.results.quantity, state.results.price)
-              "
-            ></i>
+            <i class="fa-solid fa-plus" @click="
+  increaseCount(state.results.quantity, state.results.price)
+"></i>
           </div>
         </div>
       </div>
