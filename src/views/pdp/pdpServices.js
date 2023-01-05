@@ -7,7 +7,7 @@ export const getProducts = async (parameter) => {
     response.data.forEach(element => {
         if(+element.id === +parameter){
             state.results=element
-            console.log(state.results.images[0])
+          
         }
     });
 

@@ -3,15 +3,7 @@ main {
   justify-content: space-between;
   margin-top: 102px;
 }
-/* #product-image {
-  box-sizing: border-box;
-  width: 45%;
-  background: url("https://www.riverwoods.net/media/catalog/product/cache/b83bbf37d16c5fefcf7c9d29faf48907/r/m/rm22w-c8643_b-000_w20352_f.jpg")
-    center no-repeat;
-  background-size: contain;
-  background-color: #ceccc8;
-  height: 100vh;
-} */
+
 #product-count{
   margin-right: 22px;
   position:absolute;
@@ -77,11 +69,11 @@ s {
 #price-quantity p {
   margin: 8px 0px;
 }
-#price-word,
-#quantity-word {
+#price-word{
   letter-spacing: 1.3px;
   font-size: 11px;
 }
+
 
 #price {
   color: darkgreen;
@@ -95,20 +87,7 @@ s {
   font-size: 500;
   font-weight: 700;
 }
-#quantity-container {
-  display: flex;
-  align-items: center;
-}
-#quantity-container p {
-  margin: 0px 12px;
-  font-weight: 700;
-  font-size: 20px;
-}
 
-.fa-minus,
-.fa-plus {
-  cursor: pointer;
-}
 
 #product-details-container {
   display: flex;
@@ -166,9 +145,6 @@ ul li {
   margin-top: 6px;
   color: darkgreen;
   margin-left: 6px;
-  /* font-size: 26px;
-  font-size: 500;
-  font-weight: 700; */
 }
 #total-price-container button {
   margin-top: 10px;

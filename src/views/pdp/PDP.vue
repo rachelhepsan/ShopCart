@@ -6,7 +6,9 @@ import { ref } from "vue";
 import DressSize from "@/components/DressSize.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import QuantityChange from "@/components/QuantityChange.vue";
 import { useRouter, useRoute } from "vue-router";
+
 
 const router = useRouter();
 const route = useRoute();
@@ -17,38 +19,23 @@ onMounted(() => {
 let productCount = ref(null);
 let showDetails = ref(false);
 let dressSize = ref(false);
-const quantity = ref(null);
-const totalPrice = ref(null);
-const addTocart = ref(null)
+const addTocart = ref(null);
 
-const decreaseCount = (eachItemPrice) => {
-  if (quantity.value.innerText > 1) {
-    quantity.value.innerText--;
-    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
-    addTocart.value.innerText="Add to cart"
-  }
-};
-const increaseCount = (maxQuantity, eachItemPrice) => {
-  if (quantity.value.innerText < maxQuantity) {
-    quantity.value.innerText++;
-    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
-    addTocart.value.innerText="Add to cart"
-  }
-};
+
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 
 const updateCart = () => {
-  // const itemTotal = JSON.parse(localStorage.getItem("totalCount"));
-  // productCount.value.innerText = itemTotal+quantity.value.innerText;
-  // localStorage.setItem(
-  //   "totalCount",
-  //   JSON.stringify(productCount.value.innerText)
-  // );
-  productCount.value.innerText = quantity.value.innerText;
-  event.target.textContent="Added to cart"
+  productCount.value.innerText = z.value;
+  event.target.textContent = "Added to cart";
 };
+
+const totalOutputPrice = ref(null)
+const a = ref(null)
+console.log(a.value)
+const z = ref(null)
+
 </script>
 
 <template>
@@ -60,30 +47,27 @@ const updateCart = () => {
       <img :src="state.results.images" />
     </div>
     <div id="product-description">
-      <h1>{{ state.results.title }}</h1>
+      <h1 >{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
-        <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s><s>101</s>
+        <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s
+        ><s>101</s>
         <h3>(20% OFF)</h3>
       </div>
 
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price">
-            <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span> {{ state.results.price }}
+          <p id="price" ref="a" >
+            <span class="dollar"
+              ><i class="fa-solid fa-indian-rupee-sign"></i
+            ></span>
+            {{ state.results.price }}
           </p>
         </div>
-        <div>
-          <p id="quantity-word">Quantity</p>
-          <div id="quantity-container">
-            <i class="fa-solid fa-minus" @click="decreaseCount(state.results.price)"></i>
-            <p id="quantity" ref="quantity">1</p>
-            <i class="fa-solid fa-plus" @click="
-  increaseCount(state.results.quantity, state.results.price)
-"></i>
-          </div>
-        </div>
+    
+        <QuantityChange :data="state.results"  @header-cart="(param) => z=param" @increase-by="(param) => totalOutputPrice = param" @decrease-by="(param) => totalOutputPrice = param"/>
+  
       </div>
       <div v-if="state.results.category === 'Fashion'">
         <DressSize />
@@ -115,8 +99,10 @@ const updateCart = () => {
       <div id="total-price-container">
         <div>
           <p id="total-price-word">Total Price</p>
-          <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span>
-          <p id="total-price" ref="totalPrice">{{ state.results.price }}</p>
+          <span class="dollar"
+            ><i class="fa-solid fa-indian-rupee-sign"></i
+          ></span>
+          <p id="total-price" ref="totalPrice">{{ totalOutputPrice }}</p>
         </div>
         <button @click="updateCart" ref="addTocart">Add to cart</button>
       </div>
@@ -127,8 +113,4 @@ const updateCart = () => {
 
 <style scoped>
 @import "./pdp.css";
-/* #product-image {
-    background: url(state.results.images)
-    center no-repeat;
-} */
 </style>
