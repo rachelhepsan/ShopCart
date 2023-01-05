@@ -9,6 +9,7 @@ const props = defineProps({
 
 const quantity = ref(null);
 const totalPrice = ref(null);
+const buttonTextChange = ref("Add to cart")
 
 
 const decreaseCount = (eachItemPrice) => {
@@ -31,11 +32,18 @@ const increaseCount = (maxQuantity, eachItemPrice) => {
   <div>
     <p id="quantity-word">Quantity</p>
     <div id="quantity-container">
-      <i class="fa-solid fa-minus" @click="decreaseCount(data.price);$emit('decreaseBy', totalPrice);$emit('headerCart',quantity.innerText)"></i>
+      <i class="fa-solid fa-minus" 
+      @click="decreaseCount(data.price);
+      $emit('decreaseBy', totalPrice);
+      $emit('headerCart',quantity.innerText)">
+      </i>
       <p id="quantity" ref="quantity">1</p>
       <i
         class="fa-solid fa-plus"
-        @click="increaseCount(data.quantity, data.price);$emit('increaseBy', totalPrice);$emit('headerCart',quantity.innerText)"        
+        @click="increaseCount(data.quantity, data.price);
+        $emit('increaseBy', totalPrice);
+        $emit('headerCart',quantity.innerText);
+        $emit('buttonTextChange',buttonTextChange)"        
       ></i>
     </div>
   </div>

@@ -20,21 +20,22 @@ let productCount = ref(null);
 let showDetails = ref(false);
 let dressSize = ref(false);
 const addTocart = ref(null);
-
+const headerCart = ref(1)
+const addToCartText = ref("Add to cart")
 
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 
 const updateCart = () => {
-  productCount.value.innerText = z.value;
+  productCount.value.innerText = headerCart.value;
   event.target.textContent = "Added to cart";
 };
 
 const totalOutputPrice = ref(null)
 const a = ref(null)
 console.log(a.value)
-const z = ref(null)
+
 
 </script>
 
@@ -66,7 +67,14 @@ const z = ref(null)
           </p>
         </div>
     
-        <QuantityChange :data="state.results"  @header-cart="(param) => z=param" @increase-by="(param) => totalOutputPrice = param" @decrease-by="(param) => totalOutputPrice = param"/>
+        <QuantityChange 
+        :data="state.results"  
+        @header-cart="(param) => headerCart=param" 
+        @increase-by="(param) => totalOutputPrice = param" 
+        @decrease-by="(param) => totalOutputPrice = param"
+        @button-text-change="(param) => addToCartText = param " 
+        
+        />
   
       </div>
       <div v-if="state.results.category === 'Fashion'">
@@ -104,7 +112,7 @@ const z = ref(null)
           ></span>
           <p id="total-price" ref="totalPrice">{{ totalOutputPrice }}</p>
         </div>
-        <button @click="updateCart" ref="addTocart">Add to cart</button>
+        <button @click="updateCart" ref="addTocart">{{addToCartText}}</button>
       </div>
     </div>
   </main>
