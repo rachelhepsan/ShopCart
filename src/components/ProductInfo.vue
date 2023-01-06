@@ -1,5 +1,7 @@
 <script setup>
 
+import ProductInfoVue from '@/components/ProductInfo.vue';
+
 const props = defineProps({
     data: {
         type: Object

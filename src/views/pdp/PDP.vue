@@ -6,6 +6,7 @@ import { ref } from "vue";
 import DressSize from "@/components/DressSize.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import QuantityChange from "@/components/QuantityChange.vue";
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
@@ -14,41 +15,26 @@ onMounted(() => {
   getProducts(route.params.productId);
 });
 
-let productCount = ref(null);
-let showDetails = ref(false);
-let dressSize = ref(false);
-const quantity = ref(null);
-const totalPrice = ref(null);
-const addTocart = ref(null)
+const productCount = ref(null);
+const showDetails = ref(false);
+const dressSize = ref(false);
+const addTocart = ref(null);
+const headerCart = ref(1);
+const addToCartText = ref("Add to cart");
+const totalOutputPrice = ref(null);
 
-const decreaseCount = (eachItemPrice) => {
-  if (quantity.value.innerText > 1) {
-    quantity.value.innerText--;
-    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
-    addTocart.value.innerText="Add to cart"
-  }
-};
-const increaseCount = (maxQuantity, eachItemPrice) => {
-  if (quantity.value.innerText < maxQuantity) {
-    quantity.value.innerText++;
-    totalPrice.value.innerText = eachItemPrice * quantity.value.innerText;
-    addTocart.value.innerText="Add to cart"
-  }
-};
+//Toggle the product detail section of each product
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 
+//changes the text of add to cart when clicked
+//Also updates the total cart count number in the header.
 const updateCart = () => {
-  // const itemTotal = JSON.parse(localStorage.getItem("totalCount"));
-  // productCount.value.innerText = itemTotal+quantity.value.innerText;
-  // localStorage.setItem(
-  //   "totalCount",
-  //   JSON.stringify(productCount.value.innerText)
-  // );
-  productCount.value.innerText = quantity.value.innerText;
-  event.target.textContent="Added to cart"
+  productCount.value.innerText = headerCart.value;
+  addToCartText.value = "Added to cart";
 };
+
 </script>
 
 <template>
@@ -63,27 +49,30 @@ const updateCart = () => {
       <h1>{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
-        <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s><s>101</s>
+        <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s
+        ><s>101</s>
         <h3>(20% OFF)</h3>
       </div>
 
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price">
-            <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span> {{ state.results.price }}
+          <p id="price" ref="a">
+            <span class="dollar"
+              ><i class="fa-solid fa-indian-rupee-sign"></i
+            ></span>
+            {{ state.results.price }}
           </p>
         </div>
-        <div>
-          <p id="quantity-word">Quantity</p>
-          <div id="quantity-container">
-            <i class="fa-solid fa-minus" @click="decreaseCount(state.results.price)"></i>
-            <p id="quantity" ref="quantity">1</p>
-            <i class="fa-solid fa-plus" @click="
-  increaseCount(state.results.quantity, state.results.price)
-"></i>
-          </div>
-        </div>
+
+        <QuantityChange
+          :data="state.results"
+          @header-cart="(param) => (headerCart = param)"
+          @increase-by="(param) => (totalOutputPrice = param)"
+          @decrease-by="(param) => (totalOutputPrice = param)"
+          @button-change="(param) => (addToCartText = param)"
+
+        />
       </div>
       <div v-if="state.results.category === 'Fashion'">
         <DressSize />
@@ -115,10 +104,16 @@ const updateCart = () => {
       <div id="total-price-container">
         <div>
           <p id="total-price-word">Total Price</p>
-          <span class="dollar"><i class="fa-solid fa-indian-rupee-sign"></i></span>
-          <p id="total-price" ref="totalPrice">{{ state.results.price }}</p>
+          <span class="dollar"
+            ><i class="fa-solid fa-indian-rupee-sign"></i
+          ></span>
+
+          <p id="total-price" v-if="totalOutputPrice === null">
+            {{ state.results.price }}
+          </p>
+          <p id="total-price" ref="totalPrice" v-else>{{ totalOutputPrice }}</p>
         </div>
-        <button @click="updateCart" ref="addTocart">Add to cart</button>
+        <button @click="updateCart" ref="addTocart">{{ addToCartText }}</button>
       </div>
     </div>
   </main>
@@ -127,8 +122,4 @@ const updateCart = () => {
 
 <style scoped>
 @import "./pdp.css";
-/* #product-image {
-    background: url(state.results.images)
-    center no-repeat;
-} */
 </style>
