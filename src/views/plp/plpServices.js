@@ -1,11 +1,15 @@
 import axios from "axios";
 import state from "./plpState.js";
 
-export const getProducts = async (checked) => {
+let dataArray = [];
+
+export const getProducts = async () => {
+
     const response = await axios.get(
         "https://rachelhepsan.github.io/ProductDetails/data.json"
     );
 
+    dataArray = response.data;
 
     if (state.searchKey === "") {
         state.results = response.data;
@@ -19,13 +23,10 @@ export const getProducts = async (checked) => {
 
 };
 
-export const getProducts2 = async (checked) => {
-    const response = await axios.get(
-        "https://rachelhepsan.github.io/ProductDetails/data.json"
-    );
+export const filterByCategory = (checked) => {
 
     if (checked.length) {
-        response.data.forEach(product => {
+        dataArray.forEach(product => {
             Object.values(checked).forEach(element => {
                 console.log(product.category.toLowerCase(), element);
                 if (product.category.toLowerCase() === element) {
@@ -34,18 +35,15 @@ export const getProducts2 = async (checked) => {
             })
         })
     } else {
-        state.results = response.data;
+        state.results = dataArray;
     }
 };
 
 
-export const getProducts3 = async (checked) => {
-    const response = await axios.get(
-        "https://rachelhepsan.github.io/ProductDetails/data.json"
-    );
+export const filterByPriceRange = (checked) => {
 
     if (checked.length) {
-        response.data.forEach(product => {
+        dataArray.forEach(product => {
             Object.values(checked).forEach(element => {
                 if (!(element.includes("-"))) {
                     if (element == 100) {
@@ -60,14 +58,14 @@ export const getProducts3 = async (checked) => {
                 } else {
                     let num = element.split("-");
                     console.log(num);
-                    if((+(product.price) >= num[0])  && (+(product.price) <= num[1])) {
+                    if ((+(product.price) >= num[0]) && (+(product.price) <= num[1])) {
                         state.results.push(product);
                     }
                 }
             })
         })
     } else {
-        state.results = response.data;
+        state.results = dataArray;
     }
 };
 
