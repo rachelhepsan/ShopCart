@@ -1,22 +1,26 @@
 <template>
   <p id="size-heading">Select Size</p>
-  <div id="size-container">
-    <span @click="colorPrevail" :class="{ spanColor: isColor }">32</span>
-    <span>34</span>
-    <span>36</span>
-    <span>38</span>
-    <span>40</span>
-    <span>42</span>
-    <span>44</span>
+  <div id="size-container" ref = "spanContainer">
+    <!-- <span @click="colorPrevail" :class="{ spanColor: isColor }">32</span> -->
+    <span @click="colorPrevail">32</span>
+    <span @click="colorPrevail">34</span>
+    <span @click="colorPrevail">36</span>
+    <span @click="colorPrevail">38</span>
+    <span @click="colorPrevail">40</span>
+    <span @click="colorPrevail">42</span>
+    <span @click="colorPrevail">44</span>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-const isColor = ref(false);
+const spanContainer = ref(null)
+console.log(spanContainer.va   lue)
+// const isColor = ref(false);
 //when a particular size is clicked it shows a background color for that size
 const colorPrevail = () => {
-  isColor.value = true;
+  // isColor.value = true;
+  console.log(event.target.classList.toggle("spanColor"));
 };
 </script>
 
