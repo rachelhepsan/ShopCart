@@ -9,7 +9,6 @@ import Footer from "@/components/Footer.vue";
 import QuantityChange from "@/components/QuantityChange.vue";
 import { useRouter, useRoute } from "vue-router";
 
-
 const router = useRouter();
 const route = useRoute();
 onMounted(() => {
@@ -20,8 +19,9 @@ let productCount = ref(null);
 let showDetails = ref(false);
 let dressSize = ref(false);
 const addTocart = ref(null);
-const headerCart = ref(1)
-const addToCartText = ref("Add to cart")
+const headerCart = ref(1);
+const addToCartText = ref("Add to cart");
+const totalOutputPrice = ref(null);
 
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
@@ -29,12 +29,9 @@ function toggleshowDetails() {
 
 const updateCart = () => {
   productCount.value.innerText = headerCart.value;
-  event.target.textContent = "Added to cart";
+  addToCartText.value = "Added to cart";
 };
 
-const totalOutputPrice = ref(null)
-const a = ref(null)
-console.log(a.value)
 
 
 </script>
@@ -48,7 +45,7 @@ console.log(a.value)
       <img :src="state.results.images" />
     </div>
     <div id="product-description">
-      <h1 >{{ state.results.title }}</h1>
+      <h1>{{ state.results.title }}</h1>
       <p id="product-detail">{{ state.results.description }}</p>
       <div id="discount">
         <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s
@@ -59,23 +56,22 @@ console.log(a.value)
       <div id="price-quantity">
         <div>
           <p id="price-word">Price</p>
-          <p id="price" ref="a" >
+          <p id="price" ref="a">
             <span class="dollar"
               ><i class="fa-solid fa-indian-rupee-sign"></i
             ></span>
             {{ state.results.price }}
           </p>
         </div>
-    
-        <QuantityChange 
-        :data="state.results"  
-        @header-cart="(param) => headerCart=param" 
-        @increase-by="(param) => totalOutputPrice = param" 
-        @decrease-by="(param) => totalOutputPrice = param"
-        @button-text-change="(param) => addToCartText = param " 
-        
+
+        <QuantityChange
+          :data="state.results"
+          @header-cart="(param) => (headerCart = param)"
+          @increase-by="(param) => (totalOutputPrice = param)"
+          @decrease-by="(param) => (totalOutputPrice = param)"
+          @button-change="(param) => (addToCartText = param)"
+
         />
-  
       </div>
       <div v-if="state.results.category === 'Fashion'">
         <DressSize />
@@ -110,13 +106,13 @@ console.log(a.value)
           <span class="dollar"
             ><i class="fa-solid fa-indian-rupee-sign"></i
           ></span>
-    
-            <p id="total-price" v-if="totalOutputPrice===null">{{ state.results.price }}</p>
-            <p id="total-price" ref="totalPrice" v-else>{{ totalOutputPrice }}</p>
-      
-           <!-- <p id="total-price" ref="totalPrice">{{ totalOutputPrice }}</p> -->
+
+          <p id="total-price" v-if="totalOutputPrice === null">
+            {{ state.results.price }}
+          </p>
+          <p id="total-price" ref="totalPrice" v-else>{{ totalOutputPrice }}</p>
         </div>
-        <button @click="updateCart" ref="addTocart">{{addToCartText}}</button>
+        <button @click="updateCart" ref="addTocart">{{ addToCartText }}</button>
       </div>
     </div>
   </main>

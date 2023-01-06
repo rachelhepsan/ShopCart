@@ -15,7 +15,6 @@
 import { ref } from "vue";
 const isColor = ref(false);
 const colorPrevail = () => {
-  console.log(event.target);
   isColor.value = true;
 };
 </script>

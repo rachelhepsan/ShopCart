@@ -4,26 +4,22 @@ const props = defineProps({
   data: {
     type: Object,
   },
-
 });
 
 const quantity = ref(null);
 const totalPrice = ref(null);
-const buttonTextChange = ref("Add to cart")
-
+const buttonTextChange = ref("Add to cart");
 
 const decreaseCount = (eachItemPrice) => {
   if (quantity.value.innerText > 1) {
     quantity.value.innerText--;
-    totalPrice.value=eachItemPrice * quantity.value.innerText
-    // addTocart.value.innerText = "Add to cart";
+    totalPrice.value = eachItemPrice * quantity.value.innerText;
   }
 };
 const increaseCount = (maxQuantity, eachItemPrice) => {
   if (quantity.value.innerText < maxQuantity) {
     quantity.value.innerText++;
-    totalPrice.value=eachItemPrice * quantity.value.innerText
-    // addTocart.value.innerText = "Add to cart";
+    totalPrice.value = eachItemPrice * quantity.value.innerText;
   }
 };
 </script>
@@ -32,18 +28,25 @@ const increaseCount = (maxQuantity, eachItemPrice) => {
   <div>
     <p id="quantity-word">Quantity</p>
     <div id="quantity-container">
-      <i class="fa-solid fa-minus" 
-      @click="decreaseCount(data.price);
-      $emit('decreaseBy', totalPrice);
-      $emit('headerCart',quantity.innerText)">
+      <i
+        class="fa-solid fa-minus"
+        @click="
+          decreaseCount(data.price);
+          $emit('decreaseBy', totalPrice);
+          $emit('headerCart', quantity.innerText);
+          $emit('buttonChange', buttonTextChange);
+        "
+      >
       </i>
       <p id="quantity" ref="quantity">1</p>
       <i
         class="fa-solid fa-plus"
-        @click="increaseCount(data.quantity, data.price);
-        $emit('increaseBy', totalPrice);
-        $emit('headerCart',quantity.innerText);
-        $emit('buttonTextChange',buttonTextChange)"        
+        @click="
+          increaseCount(data.quantity, data.price);
+          $emit('increaseBy', totalPrice);
+          $emit('headerCart', quantity.innerText);
+          $emit('buttonChange', buttonTextChange);
+        "
       ></i>
     </div>
   </div>
