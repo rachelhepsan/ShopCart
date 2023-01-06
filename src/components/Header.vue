@@ -5,11 +5,11 @@
 <template>
   <header class="header">
     <div>
-      <h2>ShopCart</h2>
+      <RouterLink :to="{ name: 'plp' }"><h2>ShopCart</h2></RouterLink>
     </div>
     <div class="options-container">
       <slot name="search"></slot>
-      <div id="cart-container">
+      <div class="cart-container">
         <i class="fa-solid fa-cart-shopping"></i>
         <slot></slot>
       </div>
@@ -31,11 +31,16 @@
   background-color: #fff;
 }
 
+a{
+  text-decoration: none;
+}
+
 .options-container {
   display: flex;
   align-items: center;
 }
-#cart-container {
+
+.cart-container {
   position: relative;
   margin-right: 20px;
 }
@@ -56,7 +61,8 @@ h2 {
   width: 90%;
   margin: 0 auto;
 }
-#cart-container slot {
+
+.cart-container slot {
   background-color: bisque;
   border: 1px solid red;
   border-radius: 12px;
