@@ -14,6 +14,7 @@
 <script setup>
 import { ref } from "vue";
 const isColor = ref(false);
+//when a particular size is clicked it shows a background color for that size
 const colorPrevail = () => {
   isColor.value = true;
 };

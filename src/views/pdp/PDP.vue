@@ -15,24 +15,25 @@ onMounted(() => {
   getProducts(route.params.productId);
 });
 
-let productCount = ref(null);
-let showDetails = ref(false);
-let dressSize = ref(false);
+const productCount = ref(null);
+const showDetails = ref(false);
+const dressSize = ref(false);
 const addTocart = ref(null);
 const headerCart = ref(1);
 const addToCartText = ref("Add to cart");
 const totalOutputPrice = ref(null);
 
+//Toggle the product detail section of each product
 function toggleshowDetails() {
   showDetails.value = !showDetails.value;
 }
 
+//changes the text of add to cart when clicked
+//Also updates the total cart count number in the header.
 const updateCart = () => {
   productCount.value.innerText = headerCart.value;
   addToCartText.value = "Added to cart";
 };
-
-
 
 </script>
 
