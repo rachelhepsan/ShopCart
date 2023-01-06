@@ -110,7 +110,11 @@ console.log(a.value)
           <span class="dollar"
             ><i class="fa-solid fa-indian-rupee-sign"></i
           ></span>
-          <p id="total-price" ref="totalPrice">{{ totalOutputPrice }}</p>
+    
+            <p id="total-price" v-if="totalOutputPrice===null">{{ state.results.price }}</p>
+            <p id="total-price" ref="totalPrice" v-else>{{ totalOutputPrice }}</p>
+      
+           <!-- <p id="total-price" ref="totalPrice">{{ totalOutputPrice }}</p> -->
         </div>
         <button @click="updateCart" ref="addTocart">{{addToCartText}}</button>
       </div>
