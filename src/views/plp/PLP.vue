@@ -1,13 +1,14 @@
 <script setup>
 import Header from '@/components/Header.vue';
 import ProductInfoVue from '@/components/ProductInfo.vue';
+import SideNavBar from "@/components/SideNavBar.vue";
 import Footer from '@/components/Footer.vue';
 
 import state from './plpState';
 import { onMounted, watch, ref } from "vue";
-import { getProducts } from "./services";
-import { getProducts2 } from "./services";
-import { getProducts3 } from "./services";
+import { getProducts } from "./plpServices";
+import { filterByCategory } from "./plpServices";
+import { filterByPriceRange } from "./plpServices";
 
 watch(() => state.searchKey, () => {
     state.results = [];
@@ -16,12 +17,12 @@ watch(() => state.searchKey, () => {
 
 watch(() => state.checkCategory, () => {
     state.results = [];
-    getProducts2(state.checkCategory);
+    filterByCategory(state.checkCategory);
 })
 
 watch(() => state.checkPriceRange, () => {
     state.results = [];
-    getProducts3(state.checkPriceRange);
+    filterByPriceRange(state.checkPriceRange);
 })
 
 onMounted(() => {
@@ -45,48 +46,9 @@ onMounted(() => {
             </div>
         </div>
         <section>
-            <nav class="side-nav">
-                <ul>
-                    <li>
-                        <h3>Categories</h3>
-                    </li>
-                    <div>
-                        <form>
-                            <input type="checkbox" id="books" name="books" value="books" v-model="state.checkCategory">
-                            <label for="books"> Books</label><br><br>
-                            <input type="checkbox" id="electronics" name="electronics" value="electronics" v-model="state.checkCategory">
-                            <label for="electronics"> Electronics</label><br><br>
-                            <input type="checkbox" id="fashion" name="fashion" value="fashion" v-model="state.checkCategory">
-                            <label for="fashion"> Fashion</label><br><br>
-                            <input type="checkbox" id="furniture" name="furniture" value="furniture" v-model="state.checkCategory"> 
-                            <label for="furniture"> Furniture</label><br><br>
-                            <input type="checkbox" id="sports" name="sports" value="sports" v-model="state.checkCategory">
-                            <label for="sports"> Shoes</label><br><br>
-                            <input type="checkbox" id="care" name="care" value="personal care" v-model="state.checkCategory">
-                            <label for="care"> Personal Care</label><br><br>
-                        </form>
-                    </div>
-                    <li>
-                        <h3>Price Range</h3>
-                    </li>
-                    <div>
-                        <form>
-                            <input type="checkbox" id="pr1" name="pr1" value="100" v-model="state.checkPriceRange">
-                            <label for="pr1"> Less than <i class="fa-solid fa-indian-rupee-sign"></i>100</label><br><br>
-                            <input type="checkbox" id="pr2" name="pr2" value="101-300" v-model="state.checkPriceRange">
-                            <label for="pr2"> <i class="fa-solid fa-indian-rupee-sign"></i>101 - <i class="fa-solid fa-indian-rupee-sign"></i>300</label><br><br>
-                            <input type="checkbox" id="pr3" name="pr3" value="301-500" v-model="state.checkPriceRange">
-                            <label for="pr3"> <i class="fa-solid fa-indian-rupee-sign"></i>301 - <i class="fa-solid fa-indian-rupee-sign"></i>500</label><br><br>
-                            <input type="checkbox" id="pr4" name="pr4" value="501-700" v-model="state.checkPriceRange">
-                            <label for="pr4"> <i class="fa-solid fa-indian-rupee-sign"></i>501 - <i class="fa-solid fa-indian-rupee-sign"></i>700</label><br><br>
-                            <input type="checkbox" id="pr5" name="pr5" value="701" v-model="state.checkPriceRange">
-                            <label for="pr5"> Above <i class="fa-solid fa-indian-rupee-sign"></i>701</label><br><br>
-                        </form>
-                    </div>
-                </ul>
-            </nav>
+            <SideNavBar />
             <div class="product-container">
-                <ProductInfoVue v-for="data in state.results"  :data="data" />
+                <ProductInfoVue v-for="data in state.results" :data="data" />
             </div>
         </section>
     </main>
