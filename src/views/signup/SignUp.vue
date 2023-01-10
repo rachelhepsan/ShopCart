@@ -11,7 +11,9 @@ import { ref, onMounted } from "vue";
         <label>Email <input type="email" placeholder="Email" /></label>
         <label>Phone Number<input type="text" placeholder="Number" /></label>
         <label>Password<input type="password" placeholder="Password" /></label>
-        <label>Confirm Password<input type="password" placeholder="Password" /></label>
+        <label
+          >Confirm Password<input type="password" placeholder="Password"
+        /></label>
         <div id="button-div">
           <a href="#">
             <span></span>
@@ -20,7 +22,6 @@ import { ref, onMounted } from "vue";
             <span></span>
             Sign Up
           </a>
-          
         </div>
       </form>
     </div>

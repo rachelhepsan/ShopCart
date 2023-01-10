@@ -1,20 +1,23 @@
 <script setup>
 import { onMounted } from "vue";
-import state from "./pdpState.js";
+import { usePdpStore } from "./pdpStore.js";
 import { getProducts } from "./pdpServices";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import DressSize from "@/components/DressSize.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import QuantityChange from "@/components/QuantityChange.vue";
 import { useRouter, useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
+
+const pdpStore = usePdpStore();
+const { data } = storeToRefs(pdpStore);
 
 const router = useRouter();
 const route = useRoute();
 onMounted(() => {
   getProducts(route.params.productId);
 });
-
 const productCount = ref(null);
 const showDetails = ref(false);
 const dressSize = ref(false);
@@ -34,7 +37,6 @@ const updateCart = () => {
   productCount.value.innerText = headerCart.value;
   addToCartText.value = "Added to cart";
 };
-
 </script>
 
 <template>
@@ -43,11 +45,11 @@ const updateCart = () => {
   </Header>
   <main>
     <div id="product-image">
-      <img :src="state.results.images" />
+      <img :src="data.images" />
     </div>
     <div id="product-description">
-      <h1>{{ state.results.title }}</h1>
-      <p id="product-detail">{{ state.results.description }}</p>
+      <h1>{{ data.title }}</h1>
+      <p id="product-detail">{{ data.description }}</p>
       <div id="discount">
         <s id="cut-dollar"><i class="fa-solid fa-indian-rupee-sign"></i></s
         ><s>101</s>
@@ -61,20 +63,19 @@ const updateCart = () => {
             <span class="dollar"
               ><i class="fa-solid fa-indian-rupee-sign"></i
             ></span>
-            {{ state.results.price }}
+            {{ data.price }}
           </p>
         </div>
 
         <QuantityChange
-          :data="state.results"
+          :data="data"
           @header-cart="(param) => (headerCart = param)"
           @increase-by="(param) => (totalOutputPrice = param)"
           @decrease-by="(param) => (totalOutputPrice = param)"
           @button-change="(param) => (addToCartText = param)"
-
         />
       </div>
-      <div v-if="state.results.category === 'Fashion'">
+      <div v-if="data.category === 'Fashion'">
         <DressSize />
       </div>
 
@@ -85,7 +86,7 @@ const updateCart = () => {
       </div>
 
       <ul v-if="showDetails">
-        <li v-for="(item, index) in state.results.details" :key="index">
+        <li v-for="(item, index) in data.details" :key="index">
           <p class="detail-para">{{ Object.keys(item)[0] }}</p>
           <p id="detail-para-colon">:</p>
           <p class="detail-para">{{ Object.values(item)[0] }}</p>
@@ -109,7 +110,7 @@ const updateCart = () => {
           ></span>
 
           <p id="total-price" v-if="totalOutputPrice === null">
-            {{ state.results.price }}
+            {{ data.price }}
           </p>
           <p id="total-price" ref="totalPrice" v-else>{{ totalOutputPrice }}</p>
         </div>
