@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "axios": "^1.2.1",
+    "install": "^0.13.0",
     "pinia": "^2.0.28",
+    "sass": "^1.57.1",
+    "scss": "^0.2.4",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
