@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <header class="header">
@@ -31,7 +29,7 @@
   background-color: #fff;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
